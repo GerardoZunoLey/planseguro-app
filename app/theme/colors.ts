@@ -48,6 +48,8 @@ const palette = {
   primaryRed60: "#C99D90",
   primaryRed80: "#B77C6B",
   primaryRed90: "#A55B46",
+  primary: "#3686C8", 
+  brandBlue: "#0D3E66",
   secondaryBlue20: "#DFE4EC",
   secondaryBlue40: "#BFCAD9",
   secondaryBlue60: "#9EAFC6",

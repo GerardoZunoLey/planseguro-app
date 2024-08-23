@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 import { BottomTabScreenProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { CompositeScreenProps } from "@react-navigation/native"
 import React from "react"
-import { TextStyle, ViewStyle } from "react-native"
+import { TextStyle, Touchable, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Icon } from "../components"
 import { DemoCommunityScreen, DemoDebugScreen } from "../screens"
@@ -9,6 +11,7 @@ import Home from "app/screens/Dashboard/Home"
 import { DemoPodcastListScreen } from "../screens/DemoPodcastListScreen"
 import { colors, typography } from "../theme"
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator"
+import { TouchableOpacity } from "react-native-gesture-handler"
 
 export type TabParamList = {
   Home: undefined
@@ -23,7 +26,7 @@ export type TabParamList = {
  *
  * More info: https://reactnavigation.org/docs/typescript/#organizing-types
  */
-export type DemoTabScreenProps<T extends keyof TabParamList> = CompositeScreenProps<
+export type TabScreenProps<T extends keyof TabParamList> = CompositeScreenProps<
   BottomTabScreenProps<TabParamList, T>,
   AppStackScreenProps<keyof AppStackParamList>
 >
@@ -45,11 +48,10 @@ export function TabsNavigator() {
       screenOptions={{
         headerShown: false,
         tabBarHideOnKeyboard: true,
-        tabBarStyle: [$tabBar, { height: bottom + 60 }],
-        tabBarActiveTintColor: colors.text,
-        tabBarInactiveTintColor: colors.text,
-        tabBarLabelStyle: $tabBarLabel,
-        tabBarItemStyle: $tabBarItem,
+        tabBarActiveTintColor: 'white', 
+        tabBarInactiveTintColor: 'gray', 
+        tabBarStyle: { backgroundColor: 'white', borderTopWidth: 0, elevation: 0, }, 
+        tabBarItemStyle: { borderRadius: 20, padding: 5, margin: 5, }, tabBarLabelStyle: { fontSize: 20, marginTop: 0, }, tabBarIconStyle: { marginBottom: -5, },
         tabBarShowLabel: false,
       }}
     >
@@ -57,12 +59,18 @@ export function TabsNavigator() {
         name="Home"
         component={Home}
         options={{
-          tabBarShowLabel: false,
-          tabBarLabel: "",
+          tabBarShowLabel: true,
+          tabBarLabel: "Inicio",
           tabBarIcon: ({ focused }) => (
             <Icon
               icon={focused ? "home" : "lihome"}
-              color={focused ? colors.tabFocus : colors.tabUnFocus}
+              color={focused ? colors.palette.neutral100 : colors.palette.neutral900}
+              style={{
+                backgroundColor: colors.palette.primary,
+                paddingHorizontal: 20,
+                paddingVertical: 2,
+                borderRadius: 10,
+              }}
               size={30}
             />
           ),
@@ -76,8 +84,14 @@ export function TabsNavigator() {
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
             <Icon
-              icon={focused ? "map" : "map_line"}
-              color={focused ? colors.tabFocus : colors.tabUnFocus}
+              icon={focused ? "home" : "lihome"}
+              color={focused ? colors.palette.neutral100 : colors.palette.neutral900}
+              style={{
+                backgroundColor: colors.palette.primary,
+                paddingHorizontal: 20,
+                paddingVertical: 2,
+                borderRadius: 10,
+              }}
               size={30}
             />
           ),
@@ -91,8 +105,14 @@ export function TabsNavigator() {
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
             <Icon
-              icon={focused ? "search" : "search_line"}
-              color={focused ? colors.tabFocus : colors.tabUnFocus}
+              icon={focused ? "home" : "lihome"}
+              color={focused ? colors.palette.neutral100 : colors.palette.neutral900}
+              style={{
+                backgroundColor: colors.palette.primary,
+                paddingHorizontal: 20,
+                paddingVertical: 2,
+                borderRadius: 10,
+              }}
               size={30}
             />
           ),
@@ -105,7 +125,17 @@ export function TabsNavigator() {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
-            <Icon icon="pin_icon" color={focused ? colors.tabFocus : colors.tabUnFocus} size={30} />
+            <Icon
+              icon={focused ? "home" : "lihome"}
+              color={focused ? colors.palette.neutral100 : colors.palette.neutral900}
+              style={{
+                backgroundColor: colors.palette.primary,
+                paddingHorizontal: 20,
+                paddingVertical: 2,
+                borderRadius: 10,
+              }}
+              size={30}
+            />
           ),
         }}
       />

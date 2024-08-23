@@ -16,10 +16,10 @@ import React from "react"
 import { useColorScheme } from "react-native"
 import * as Screens from "app/screens"
 import Config from "../config"
-import { useStores } from "../models"
 import { TabsNavigator, TabParamList } from "./TabsNavigator"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 import { colors } from "app/theme"
+import useAuthStore from "store/useAuthStore"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -37,9 +37,10 @@ import { colors } from "app/theme"
 export type AppStackParamList = {
   Welcome: undefined
   Login: undefined
+  Register: undefined
   OnBoarding: undefined
   OnScreen01: undefined
-  Demo: NavigatorScreenParams<TabParamList>
+  TabNavigator: NavigatorScreenParams<TabParamList>
   // 🔥 Your screens go here
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
@@ -59,23 +60,28 @@ export type AppStackScreenProps<T extends keyof AppStackParamList> = NativeStack
 const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = observer(function AppStack() {
-  const {
+/*   const {
     authenticationStore: { isAuthenticated },
   } = useStores()
+ */
+
+  const {isAuth}  =  useAuthStore()
+
 
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false, navigationBarColor: colors.background }}
-      initialRouteName={isAuthenticated ? "OnBoarding" : "Login"}
+      initialRouteName={isAuth ? "TabNavigator" : "Login"}
     >
-      {isAuthenticated ? (
+      {isAuth ? (
         <>
-          <Stack.Screen name="OnBoarding" component={Screens.OnBoarding} />
+          <Stack.Screen name="TabNavigator" component={TabsNavigator} />
         </>
       ) : (
         <>
-          <Stack.Screen name="Demo" component={TabsNavigator} />
           <Stack.Screen name="Login" component={Screens.LoginScreen} />
+          <Stack.Screen name="Register" component={Screens.RegisterScreen} />
+
         </>
       )}
 

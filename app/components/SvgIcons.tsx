@@ -4,7 +4,8 @@ import On1 from "../../assets/icons/on1.svg"
 import On2 from "../../assets/icons/on2.svg"
 import On3 from "../../assets/icons/on3.svg"
 import On4 from "../../assets/icons/on4.svg"
-import LoginBack from "../../assets/images/login_back.svg"
+import LoginLogo from "../../assets/icons/LOGOTIPO PLAN SEGURO.svg"
+
 
 interface Props {
   name: string
@@ -18,7 +19,7 @@ const SvgIcons: React.FC<Props> = ({ name, width, height }) => {
     onBoarding2: On2,
     onBoarding3: On3,
     onBoarding4: On4,
-    loginImg: LoginBack,
+    loginImg: LoginLogo,
   }
 
   const Icon = SvgIconsMap[name]

@@ -5,9 +5,9 @@
     "scheme": "pin",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/app-icon-all.png",
+    "icon": "./assets/images/planseguro-logo.png",
     "splash": {
-      "image": "./assets/images/splash-logo-all.png",
+      "image": "./assets/images/planseguro-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#DFE4EC"
     },
@@ -17,33 +17,33 @@
     "jsEngine": "hermes",
     "assetBundlePatterns": ["**/*"],
     "android": {
-      "icon": "./assets/images/app-icon-android-legacy.png",
+      "icon": "./assets/images/planseguro-logo.png",
       "package": "com.stetamalo.pin",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
-        "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
+        "foregroundImage": "./assets/images/planseguro-logo.png",
+        "backgroundImage": "./assets/images/planseguro-logo.png"
       },
       "splash": {
-        "image": "./assets/images/splash-logo-android-universal.png",
+        "image": "./assets/images/planseguro-logo.png",
         "resizeMode": "contain",
         "backgroundColor": "#DFE4EC"
       }
     },
     "ios": {
-      "icon": "./assets/images/app-icon-ios.png",
+      "icon": "./assets/images/planseguro-logo.png",
       "supportsTablet": true,
       "bundleIdentifier": "com.stetamalo.pin",
       "splash": {
-        "image": "./assets/images/splash-logo-ios-mobile.png",
-        "tabletImage": "./assets/images/splash-logo-ios-tablet.png",
+        "image": "./assets/images/planseguro-logo.png",
+        "tabletImage": "./assets/images/planseguro-logo.png",
         "resizeMode": "contain",
         "backgroundColor": "#DFE4EC"
       }
     },
     "web": {
-      "favicon": "./assets/images/app-icon-web-favicon.png",
+      "favicon": "./assets/images/planseguro-logo.png",
       "splash": {
-        "image": "./assets/images/splash-logo-web.png",
+        "image": "./assets/images/planseguro-logo.png",
         "resizeMode": "contain",
         "backgroundColor": "#DFE4EC"
       },
